@@ -1,0 +1,40 @@
+﻿@page
+@model Homework_Razor_Pages_1.Pages.IndexModel
+@{
+    // C#-код
+    string title = "Software features";
+    string computer_name = Environment.MachineName;
+    int category = 32;
+    string platform = $"{ Environment.OSVersion}";
+    int time = Convert.ToInt32(Environment.TickCount / 1000 / 60);
+    double volum_of_memory = Environment.WorkingSet / 1024 / 1024;
+}
+
+<!--шаблонизатор 'Razor'-->
+<!--HTML-код-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+</head>
+<body>
+    <h1>@title</h1>
+    <p>
+        Имя компьютера: @computer_name 
+        <br />
+        @if (Environment.Is64BitOperatingSystem) {
+            category = 64;
+        }
+        Операционная система является: @category -разрядной
+        <br />
+        Платформа и номер версии: @platform
+        <br />
+        Время, истекшее с момента загрузки ситемы: @time
+        <br />
+        Обьем используемой физической памяти: @volum_of_memory
+        <br />
+    </p>
+</body>
+</html>
