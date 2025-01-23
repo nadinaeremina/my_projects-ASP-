@@ -1,0 +1,42 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#container {
+    background-color: darkgrey;
+    height: 270px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+label {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    background-color: blanchedalmond;
+    border: solid 1px;
+    border-radius: 8%;
+    height: 30px;
+    width: 80px;
+}
+
+#result {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.section {
+    margin-bottom: 10px;
+}

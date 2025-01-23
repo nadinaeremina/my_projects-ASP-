@@ -1,0 +1,54 @@
+﻿@page
+@model HomeworkCalculator.Pages.IndexModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial App</title>
+    <link rel="stylesheet" href="css/styleSheet.css"
+</head>
+<body>
+    <div id="container">
+        <h1>The Circle</h1>
+        <form action="/" method="get">
+            <div class="section">
+                <label for="parameter">Выберите параметр:</label>
+                <select id="parameter" name="parameter">
+                    <option disabled selected value>Параметр не выбран</option>
+                    <option value="radius">Радиус</option>
+                    <option value="diameter">Диаметр</option>
+                </select>
+            </div>
+            <div class="section">
+                <label for="value">Введите значение параметра:</label>
+                <input type="number" id="value" name="value" min="0" max="20" required value="@Model.Value" />
+            </div>
+            <div class="section">
+                <label for="issue">Выберите задачу:</label>
+                <select id="issue" name="issue">
+                    <option disabled selected value>Параметр не выбран</option>
+                    <option value="square">Площадь</option>
+                    <option value="length">Длина</option>
+                </select>
+            </div>
+            <div class="section">
+                <button>Calculate</button>
+            </div>
+            <div class="section">
+                <label id="result">Result:</label>
+            </div>
+@*             @if (Model.Error == null)
+            { *@
+                <label>@Model.Result</label>
+@*             }
+            else
+            {
+                <label>@Model.Error</label>
+            } *@
+        </form>
+    </div>
+</body>
+</html>
