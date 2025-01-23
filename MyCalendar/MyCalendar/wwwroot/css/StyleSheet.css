@@ -1,2 +1,43 @@
 ﻿body {
+    display: flex;
+    justify-content: center;
+}
+
+#main_div {
+    margin-top: 30px;
+    background-color: antiquewhite;
+    border: 1px solid;
+    width: 300px;
+}
+
+table {
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 95%;
+}
+
+caption {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+td {
+    text-align: center;
+}
+
+.red {
+    color: red;
+}
+
+.grey {
+    color: lightgrey;
+}
+
+.black_border{
+    border: 1px solid black;
+}
+
+.red_border {
+    border: 1px solid red;
 }

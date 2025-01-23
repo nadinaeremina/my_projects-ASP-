@@ -1,17 +1,7 @@
 ﻿@page
 @model MyCalendar.Pages.IndexModel
 @{
-    DateTime now_date = DateTime.Now;
-    DateTime search_date = new DateTime(now_date.Year, now_date.Month, 1);
-    DateTime new_search_date = search_date.AddMonths(-1);
-    int day_of_week = Convert.ToInt32(search_date.DayOfWeek);
-    int count_days = DateTime.DaysInMonth(Convert.ToInt16(now_date.Year), Convert.ToInt32(now_date.Month));
-    int count_days_pred_month = DateTime.DaysInMonth(Convert.ToInt16(new_search_date.Year), Convert.ToInt32(new_search_date.Month));
     int counter = 1;
-    if (day_of_week>2)
-    {
-        count_days_pred_month = count_days_pred_month-(day_of_week - 2);
-    }
 }
 
 <!DOCTYPE html>
@@ -19,49 +9,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razor Pages Sandbox</title>
+    <title>@Model.Title</title>
+    <link rel="stylesheet" href="~/css/StyleSheet.css">
 </head>
 <body>
-    <h1>Welcome to Calendar!</h1>
-
-    <table>
-        <caption><b>@now_date.ToString("MMMM") @now_date.Year.ToString()</b></caption>
-        <thead>
-            <tr>
-                <td>ПН</td>
-                <td>ВТ</td>
-                <td>СР</td>
-                <td>ЧТ</td>
-                <td>ПТ</td>
-                <td>СБ</td>
-                <td>ВС</td>
-            </tr>
-        </thead>
-        <tbody>
-            @do
-            {
+    <div id="main_div">
+        <table>
+            <caption><b>@Model.Now_date.ToString("MMMM").ToUpper() @Model.Now_date.Year.ToString()</b></caption>
+            <thead>
                 <tr>
-                    @for (int i = 1, j = 1 ; i <= 7; i++)
-                    {
-                        if (i < day_of_week && counter == 1)
-                        {
-                            <td>@count_days_pred_month</td>
-                            count_days_pred_month++;
-                            continue;
-                        }
-                        if (counter > count_days)
-                        {
-                            <td>@j</td>
-                            j++;
-                            continue;
-                        }
-                        <td>@counter</td>
-                        counter++;
-                    }
+                    <td>ПН</td>
+                    <td>ВТ</td>
+                    <td>СР</td>
+                    <td>ЧТ</td>
+                    <td>ПТ</td>
+                    <td class="red">СБ</td>
+                    <td class="red">ВС</td>
                 </tr>
-            } while (counter <= count_days);
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @do
+                {
+                    int count_days_prev_month = @Model.Count_days_prev_month;
+                    <tr>
+                        @for (int i = 1, j = 1; i <= 7; i++)
+                        {
+                            string classValue = "";
+                            if (i < @Model.Day_of_week && @counter == 1)
+                            {
+                                <td class="grey">@count_days_prev_month</td>
+                                count_days_prev_month++;
+                                continue;
+                            }
+                            if (i == @Model.Day_of_week && @counter == 1 )
+                            {
+                                if (@Model.Day_of_week < 6)
+                                {
+                                    classValue += "black_border";
+                                }
+                                else
+                                {
+                                    classValue += "red_border";
+                                }
+                            }
+                            if (i == 6 || i == 7)
+                            {
+                                classValue += "red";
+                            }
+                            if (counter > @Model.Count_days)
+                            {
+                                <td class="grey">@j</td>
+                                j++;
+                                continue;
+                            }
+                            <td class=@classValue>@counter</td>
+                            counter++;
+                        }
+                    </tr>
+                } while (@counter <= @Model.Count_days);
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
 
