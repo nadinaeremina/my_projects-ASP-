@@ -1,0 +1,36 @@
+﻿@page
+@model SimplestCalculatorFromLesson.Pages.IndexModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Factorial App</h1>
+
+    <!-- форма для ввода данных -->
+    <form action="/" method="get">
+        <!-- поле ввода n -->
+        <label for="n">n:</label>
+        <input type="number" id="n" name="n" min="0" max="20" required value="@Model.N" />
+        <!-- кнопка отправки формы -->
+        <button>Calculate</button>
+    </form>
+
+    <!-- вывод ответа -->
+    @if (Model.Error == null)
+    {
+        // нет ошибки
+        <p>@Model.N! = @Model.NFact</p>
+    }
+    else
+    {
+        // ошибка
+        <p>@Model.Error</p>
+    }
+</body>
+</html>
+
