@@ -1,0 +1,101 @@
+﻿@page
+@using RazorPagesSimpleCRUD.Model
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model RazorPagesSimpleCRUD.Pages.Issues.Issue_ListModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue List CRUD App</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 2px solid black;
+            padding: 5px;
+            font-size: 20pt;
+            text-align: center;
+        }
+        .expired {
+            background-color: red;
+            color: white;
+        }
+        .done {
+            background-color: lightgray;
+        }
+        .green {
+            background-color: green;
+            color: white;
+        }
+        .yellow {
+            background-color: yellow;
+            color: black;
+        }
+        .red {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список дел - Issue List</h1>
+
+    <!-- таблица для вывода объектов -->
+    <table>
+        <!-- шапка таблицы -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Заголовок</th>
+                <th>Дата создания</th>
+                <th>Дедлайн*</th>
+                <th>Приоритет**</th>
+                <th>Сделано ли***</th>
+            </tr>
+        </thead>
+        <!-- тело таблицы -->
+        <tbody>
+            @foreach (Issue issue in Model.Issues) 
+            {
+                string deadlineClass = "";
+                if (DateTime.Today > issue.Deadline && !issue.Done) 
+                {
+                    deadlineClass = "expired";
+                }
+                string priorityClass = "yellow";
+                if (issue.Priority < 2) 
+                {
+                    priorityClass = "green";
+                }
+                if (issue.Priority > 2)
+                {
+                    priorityClass = "red";
+                }
+                string doneClass = "";
+                if (issue.Done) {
+                    doneClass = "done";
+                }
+                
+                <!-- строка с очередной записью -->
+                <tr>
+                    <td>@issue.Id</td>
+                    <td>@issue.Title</td>
+                    <td>@($"{issue.CreatedAt:dd.MM.yyyy}")</td>
+                    <td class="@deadlineClass">@($"{issue.Deadline:dd.MM.yyyy}")</td>
+                    <td class="@priorityClass">@issue.Priority</td>
+                    <td class="@doneClass">@(issue.Done ? "+" : "-")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>* - если дедлайн вышел и не сделано, то красный цвет, иначе белый</p>
+    <p>** - зеленый - низкий, желтый - средний, красный - высокий</p>
+    <p>*** - если сделано - серый цвет, иначе белый</p>
+
+    <p><a asp-page="/Index">Перейти к списку дел</a></p>
+</body>
+</html>
