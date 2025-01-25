@@ -5,8 +5,11 @@
 
 #container {
     background-color: darkgrey;
-    height: 270px;
-    text-align: center;
+    height: 300px;
+    width: 320px;
+    position: absolute;
+    left: 40%;
+    top: 40%;
 }
 
 form {
@@ -16,7 +19,7 @@ form {
 
 h1 {
     text-align: center;
-    margin: 20px;
+    padding: 30px;
 }
 
 label {
@@ -27,7 +30,7 @@ button {
     margin: 10px;
     background-color: blanchedalmond;
     border: solid 1px;
-    border-radius: 8%;
+    border-radius: 10%;
     height: 30px;
     width: 80px;
 }

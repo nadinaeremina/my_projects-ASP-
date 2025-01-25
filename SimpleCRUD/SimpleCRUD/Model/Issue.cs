@@ -15,7 +15,7 @@
 
         public override string ToString()
         {
-            return $"{Id} - {Title}";
+            return $"{Id} - {Title} - {Description} - {CreatedAt} - {Deadline} - {Priority} - {Done}";
         }
     }
 }

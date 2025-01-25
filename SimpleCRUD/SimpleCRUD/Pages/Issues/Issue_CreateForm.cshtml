@@ -1,0 +1,42 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model RazorPagesSimpleCRUD.Pages.Issues.Issue_CreateFormModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue List CRUD App</title>
+</head>
+<body>
+    <h1>Добавить новое дело в список</h1>
+
+    <!-- форма добавления нового дела -->
+    <form method="post" action="">
+        <!-- title -->
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" minlength="1" maxlength="120" required />
+        
+        <!-- description -->
+        <label for="description">Описание и подробности:</label>
+        <input type="text" id="description" name="description" minlength="1" required />
+        
+        <!-- deadline -->
+        <label for="deadline">Дедлайн:</label>
+        <input type="date" id="deadline" name="deadline" value="@($"{DateTime.Today:yyyy-MM-dd}")" required />
+        
+        <!-- приоритет -->
+        <label for="priority">Приоритет:</label>
+        <select id="priority" name="priority">
+            <option value="1">Низкий</option>
+            <option value="2">Средний</option>
+            <option value="3">Высокий</option>
+        </select>
+        
+        <!-- кнопка отправки формы -->
+        <button>Добавить</button>
+    </form>
+
+    <p><a asp-page="/Issues/Issue_List">Вернуться к списку дел</a></p>
+</body>
+</html>

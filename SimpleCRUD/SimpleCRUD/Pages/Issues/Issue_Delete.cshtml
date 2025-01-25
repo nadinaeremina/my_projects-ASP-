@@ -1,0 +1,32 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model RazorPagesSimpleCRUD.Pages.Issues.Issue_DeleteModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue List CRUD App</title>
+</head>
+<body>
+    
+    <h1>Удаление @Model.DeletingIssue.Id - @Model.DeletingIssue.Title</h1>
+
+    <p>
+        Вы действительно хотите удалить запись?
+    </p>
+    <!-- форма удаления -->
+    <form method="post" action="">
+        <!-- скрытое поле id удаляемой записи -->
+        <input type="number" name="id" value="@Model.DeletingIssue.Id" hidden />
+        <!-- кнопка отправки формы -->
+        <button>Удалить</button>
+        <!-- кнопка отмены (не submit) -->
+        <a asp-page="/Issues/Issue_List">
+            <input type="button" value="Отменить" />
+        </a>
+    </form>
+
+    <p><a asp-page="/Issues/Issue_List">Вернуться к списку дел</a></p>
+</body>
+</html>

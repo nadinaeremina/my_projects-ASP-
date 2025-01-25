@@ -1,0 +1,59 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model RazorPagesSimpleCRUD.Pages.Issues.Issue_EditFormModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue List CRUD App</title>
+</head>
+<body>
+    <h1>Редактирование: @Model.EditingIssue.Id - @Model.EditingIssue.Title</h1>
+
+    <!-- форма редактирования дела -->
+    <form method="post" action="">
+        <!-- id (нельзя изменить, но надо передавать) -->
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" value="@Model.EditingIssue.Id" readonly />
+
+        <!-- title -->
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" minlength="1" maxlength="120" value="@Model.EditingIssue.Title" required />
+        
+        <!-- description -->
+        <label for="description">Описание и подробности:</label>
+        <input type="text" id="description" name="description" minlength="1" value="@Model.EditingIssue.Description" required />
+        
+        <!-- время создания (нельзя изменить, но надо передавать) -->
+        <label for="created-at">Дата создания:</label>
+        <input type="date" id="created-at" name="createdAt" value="@($"{Model.EditingIssue.CreatedAt:yyyy-MM-dd}")" readonly />
+
+        <!-- deadline -->
+        <label for="deadline">Дедлайн:</label>
+        <input type="date" id="deadline" name="deadline" value="@($"{Model.EditingIssue.Deadline:yyyy-MM-dd}")" required />
+        
+        <!-- приоритет -->
+        <label for="priority">Приоритет:</label>
+        <select id="priority" name="priority">
+            <option value="1" selected="@(Model.EditingIssue.Priority <= 1)">Низкий</option>
+            <option value="2" selected="@(Model.EditingIssue.Priority == 2)">Средний</option>
+            <option value="3" selected="@(Model.EditingIssue.Priority >= 3)">Высокий</option>
+        </select>
+
+        <!-- сделано ли -->
+        <label for="done">Сделано ли:</label>
+        <input type="checkbox" id="done" name="done" checked="@Model.EditingIssue.Done" value="true" />
+
+        <!-- кнопка отправки формы -->
+        <button>Сохранить</button>
+
+        <!-- кнопка отмены (не submit) -->
+        <a asp-page="/Issues/Issue_List">
+            <input type="button" value="Отменить" />
+        </a>
+    </form>
+
+    <p><a asp-page="/Issues/Issue_List">Вернуться к списку дел</a></p>
+</body>
+</html>

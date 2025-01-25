@@ -20,22 +20,22 @@
             text-align: center;
         }
         .expired {
-            background-color: red;
+            background-color: rgba(255, 0, 0, 0.6);
             color: white;
         }
         .done {
             background-color: lightgray;
         }
         .green {
-            background-color: green;
+            background-color: rgba(0, 255, 0, 0.3);
             color: white;
         }
         .yellow {
-            background-color: yellow;
+            background-color: rgba(128, 128, 0, 0.3);
             color: black;
         }
         .red {
-            background-color: red;
+            background-color: rgba(255, 0, 0, 0.6);
             color: white;
         }
     </style>
@@ -54,6 +54,7 @@
                 <th>Дедлайн*</th>
                 <th>Приоритет**</th>
                 <th>Сделано ли***</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <!-- тело таблицы -->
@@ -82,11 +83,21 @@
                 <!-- строка с очередной записью -->
                 <tr>
                     <td>@issue.Id</td>
-                    <td>@issue.Title</td>
+                    <td>
+                        <!-- вывод заголовка + ссылка на details записи -->
+                        <a  asp-page="/Issues/Issue_Details" asp-route-id="@issue.Id">
+                            @issue.Title
+                        </a>
+                    </td>
                     <td>@($"{issue.CreatedAt:dd.MM.yyyy}")</td>
                     <td class="@deadlineClass">@($"{issue.Deadline:dd.MM.yyyy}")</td>
                     <td class="@priorityClass">@issue.Priority</td>
                     <td class="@doneClass">@(issue.Done ? "+" : "-")</td>
+                    <!-- действия -->
+                    <td>
+                        <a asp-page="/Issues/Issue_Delete" asp-route-id="@issue.Id">Удалить</a>
+                        <a asp-page="/Issues/Issue_EditForm" asp-route-id="@issue.Id">Редактировать</a>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -96,6 +107,7 @@
     <p>** - зеленый - низкий, желтый - средний, красный - высокий</p>
     <p>*** - если сделано - серый цвет, иначе белый</p>
 
+    <p><a asp-page="/Issues/Issue_CreateForm">Добавить новое дело в список</a></p>
     <p><a asp-page="/Index">Перейти к списку дел</a></p>
 </body>
 </html>

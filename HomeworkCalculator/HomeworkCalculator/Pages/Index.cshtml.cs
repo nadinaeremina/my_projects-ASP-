@@ -5,8 +5,10 @@ namespace HomeworkCalculator.Pages
 {
     public class IndexModel : PageModel
     {
-        public string Parametr { get; private set; }         
-        public string Issue { get; private set; }     
+        public string App_name { get; private set; } = "Calculator App";
+        public string H1_name { get; private set; } = "The Circle";
+        // public string Parametr { get; private set; }         
+        // public string Issue { get; private set; }     
         public double Value { get; private set; }     
         public double Result { get; private set; }
         public string? Error { get; private set; } = null; 
@@ -25,27 +27,27 @@ namespace HomeworkCalculator.Pages
                 return;
             }
             Error = null;
-            Parametr = parameter;
-            Issue = isuue;
-            Result = Calculation(parameter, isuue);
+            // Parametr = parameter;
+            // Issue = isuue;
+            Result = Calculation(parameter, isuue, value);
         }
-        private double Calculation(string parameter, string isuue)
+        private double Calculation(string parameter, string isuue, double value = 1)
         {
             if (parameter == "radius") 
             {
                 if (isuue == "square")
                 {
-                    return Pi *Value * Value;
+                    return Pi * value * value;
                 }
-                return 2 * Pi * Value;
+                return 2 * Pi * value;
             }
             if (parameter == "diameter")
             {
                 if (isuue == "square")
                 {
-                    return Value * Value / 4 * Pi;
+                    return value * value / 4 * Pi;
                 }
-                return Pi * Value;
+                return Pi * value;
             }
             return 0;
         }

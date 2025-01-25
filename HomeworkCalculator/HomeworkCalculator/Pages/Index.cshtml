@@ -7,12 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factorial App</title>
-    <link rel="stylesheet" href="css/styleSheet.css"
+    <title>@Model.App_name</title>
+    <link rel="stylesheet" href="css/styleSheet.css">
 </head>
 <body>
     <div id="container">
-        <h1>The Circle</h1>
+        <h1>@Model.H1_name</h1>
         <form action="/" method="get">
             <div class="section">
                 <label for="parameter">Выберите параметр:</label>
@@ -24,7 +24,7 @@
             </div>
             <div class="section">
                 <label for="value">Введите значение параметра:</label>
-                <input type="number" id="value" name="value" min="0" max="20" required value="@Model.Value" />
+                <input type="number" id="value" name="value" min="0" max="20" required value="@Model.Value"/>
             </div>
             <div class="section">
                 <label for="issue">Выберите задачу:</label>
@@ -39,15 +39,15 @@
             </div>
             <div class="section">
                 <label id="result">Result:</label>
+                @if (@Model.Error == null)
+                {
+                    <label>@Model.Result</label>
+                }
+                else
+                {
+                    <label>@Model.Error</label>
+                }               
             </div>
-@*             @if (Model.Error == null)
-            { *@
-                <label>@Model.Result</label>
-@*             }
-            else
-            {
-                <label>@Model.Error</label>
-            } *@
         </form>
     </div>
 </body>
