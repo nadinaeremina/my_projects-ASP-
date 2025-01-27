@@ -15,26 +15,26 @@
         <h1>@Model.H1_name</h1>
         <form action="/" method="get">
             <div class="section">
-                <label for="parameter">Выберите параметр:</label>
-                <select id="parameter" name="parameter">
-                    <option disabled selected value>Параметр не выбран</option>
-                    <option value="radius">Радиус</option>
-                    <option value="diameter">Диаметр</option>
+                <label for="param">Выберите параметр:</label>
+                <select class="width_el" id="param" name="param">
+                    <option value="radius" selected="@(Model.Param == "radius")">Радиус</option>
+                    <option value="diameter" selected="@(Model.Param == "diameter")">Диаметр</option>
                 </select>
             </div>
             <div class="section">
                 <label for="value">Введите значение параметра:</label>
-                <input type="number" id="value" name="value" min="0" max="20" required value="@Model.Value"/>
+                <input class="width_el" type="number" id="value" name="value" min="0" step="any" required value="@Model.Value"/>
             </div>
             <div class="section">
                 <label for="issue">Выберите задачу:</label>
-                <select id="issue" name="issue">
-                    <option disabled selected value>Параметр не выбран</option>
-                    <option value="square">Площадь</option>
-                    <option value="length">Длина</option>
+                <select class="width_el" id="issue" name="issue">
+                    <option value="square" selected="@(Model.Issue == "square")">Площадь</option>
+                    <option value="length" selected="@(Model.Issue == "length")">Длина</option>
+@*                     <option value="square" selected="@(Model.Issue == "square")">Площадь</option>
+                    <option value="length" selected="@(Model.Issue == "length")">Длина</option> *@
                 </select>
             </div>
-            <div class="section">
+            <div class="last_section">
                 <button>Calculate</button>
             </div>
             <div class="section">

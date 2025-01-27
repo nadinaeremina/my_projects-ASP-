@@ -5,16 +5,16 @@
 
 #container {
     background-color: darkgrey;
-    height: 300px;
-    width: 320px;
-    position: absolute;
-    left: 40%;
-    top: 40%;
+    height: 350px;
+    width: 350px;
+    margin: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 h1 {
@@ -26,12 +26,27 @@ label {
     margin-bottom: 20px;
 }
 
+.width_el {
+    width: 85px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.last_section {
+    display: flex;
+    justify-content: center;
+}
+
 button {
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     background-color: blanchedalmond;
     border: solid 1px;
     border-radius: 10%;
-    height: 30px;
+    height: 40px;
     width: 80px;
 }
 
