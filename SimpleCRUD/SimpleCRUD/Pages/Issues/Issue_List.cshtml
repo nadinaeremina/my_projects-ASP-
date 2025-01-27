@@ -85,9 +85,11 @@
                     <td>@issue.Id</td>
                     <td>
                         <!-- вывод заголовка + ссылка на details записи -->
-                        <a  asp-page="/Issues/Issue_Details" asp-route-id="@issue.Id">
+                        <!-- (asp-route-id="@issue.Id") - передаем 'id' данного элемента на след форму -->
+                        <a asp-page="/Issues/Issue_Details" asp-route-id="@issue.Id">
                             @issue.Title
                         </a>
+                        <!--Будет сгенерирована следующая ссылка: Issues/Issue_Details?id={issue.Id}-->
                     </td>
                     <td>@($"{issue.CreatedAt:dd.MM.yyyy}")</td>
                     <td class="@deadlineClass">@($"{issue.Deadline:dd.MM.yyyy}")</td>

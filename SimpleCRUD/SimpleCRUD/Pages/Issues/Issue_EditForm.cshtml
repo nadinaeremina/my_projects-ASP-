@@ -36,6 +36,7 @@
         <!-- приоритет -->
         <label for="priority">Приоритет:</label>
         <select id="priority" name="priority">
+            <!--Выберется, если выолнится условие в скобках-->
             <option value="1" selected="@(Model.EditingIssue.Priority <= 1)">Низкий</option>
             <option value="2" selected="@(Model.EditingIssue.Priority == 2)">Средний</option>
             <option value="3" selected="@(Model.EditingIssue.Priority >= 3)">Высокий</option>

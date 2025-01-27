@@ -7,12 +7,15 @@ namespace RazorPagesSimpleCRUD.Model.Migrations
     /// <inheritdoc />
     public partial class SeedInitData : Migration
     {
-        /// <inheritdoc />
+        // применение миграции
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             DateTime now = DateTime.Today;
+            // вписываем данные
             migrationBuilder.InsertData(
+                // название таблицы
                 table: "Issues",
+                // зададим колонки
                 columns: ["Id", "Title", "Description", "CreatedAt", "Deadline", "Priority", "Done"],
                 values: new object[,]
                 {
@@ -31,13 +34,14 @@ namespace RazorPagesSimpleCRUD.Model.Migrations
             );
         }
 
-        /// <inheritdoc />
+        // отмена миграции
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             for (int i = 1; i <= 11; i++)
             {
                 migrationBuilder.DeleteData(
                     table: "Issues",
+                    // удалять будем по 'id'
                     keyColumn: "Id",
                     keyValue: i
                 );
@@ -45,3 +49,11 @@ namespace RazorPagesSimpleCRUD.Model.Migrations
         }
     }
 }
+
+// Добавили миграции с помощью:
+// 1 // Add-Migration Init -OutputDir './Model/Migrations'
+// миграция для инициализации БД начальными данными:
+// 2 // Add-Migration SeedInitData
+// 'SeedInitData' - название придумали сами
+// -OutputDir './Model/Migrations' - можно уже не писать, 'EF' автомат найдет папку 'Migrations'
+// 'Update-Database'

@@ -8,11 +8,10 @@ namespace RazorPagesSimpleCRUD.Model.Migrations
     /// <inheritdoc />
     public partial class Init : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.CreateTable(
-                name: "Issues",
+        {          
+            migrationBuilder.CreateTable(              
+                name: "Issues",              
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -30,7 +29,6 @@ namespace RazorPagesSimpleCRUD.Model.Migrations
                 });
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

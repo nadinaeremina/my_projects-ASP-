@@ -1,5 +1,5 @@
 ﻿@page
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
 @model RazorPagesSimpleCRUD.Pages.IndexModel
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,11 @@
 <body>
 	<h1>Проект-пример реализации CRUD-операций с сущность БД</h1>
 
+	<!--при опред условиях может сломаться, потому что странички могут лежать в разных папках
+	и могут быть тонкости в нейминге страниц-->
+	<!--<a href="Issues/Issue_List">Перейти к списку дел</a></p>-->
+	<!--лучше использовать тег-хелпер языка 'Razor', который нужно заранее подключить-->
 	<p><a asp-page="/Issues/Issue_List">Перейти к списку дел</a></p>
+	<!--Загрузится страница 'Issue_List'-->
 </body>
 </html>
