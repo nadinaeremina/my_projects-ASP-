@@ -35,9 +35,18 @@ label {
     justify-content: space-between;
 }
 
-.last_section {
+.calc_section {
     display: flex;
     justify-content: center;
+}
+
+.res_section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#result {
+    margin-right: 10px;
 }
 
 button {

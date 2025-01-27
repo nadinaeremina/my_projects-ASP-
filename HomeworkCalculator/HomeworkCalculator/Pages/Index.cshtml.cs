@@ -23,7 +23,7 @@ namespace HomeworkCalculator.Pages
                 return;
             }
             Error = null;          
-            Result = Calculation(param, issue, value);
+            Result = Math.Round((Calculation(param, issue, value)), 2);
         }
         private double Calculation(string param, string issue, double value = 1)
         {

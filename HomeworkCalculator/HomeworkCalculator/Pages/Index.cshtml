@@ -30,14 +30,12 @@
                 <select class="width_el" id="issue" name="issue">
                     <option value="square" selected="@(Model.Issue == "square")">Площадь</option>
                     <option value="length" selected="@(Model.Issue == "length")">Длина</option>
-@*                     <option value="square" selected="@(Model.Issue == "square")">Площадь</option>
-                    <option value="length" selected="@(Model.Issue == "length")">Длина</option> *@
                 </select>
             </div>
-            <div class="last_section">
+            <div class="calc_section">
                 <button>Calculate</button>
             </div>
-            <div class="section">
+            <div class="res_section">
                 <label id="result">Result:</label>
                 @if (@Model.Error == null)
                 {
