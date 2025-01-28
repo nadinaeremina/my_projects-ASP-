@@ -13,19 +13,36 @@
             border-collapse: collapse;
             width: 100%;
         }
-
         td, th {
-            border: 2px solid black;
+            border: 2px solid  black;
             padding: 5px;
             font-size: 20pt;
             text-align: center;
         }
+        #h_list {
+            font-size: 36px;
+            color: blueviolet;
+            font-style: italic;
+            text-align:center;
+        }
+        #main_table {
+            background-color: rgba(138,43,226,0.2);
+        }
+        .a_style {
+            text-decoration: none;
+            color: blueviolet;
+            font-style: italic;
+        }
+
+        .but_style {
+            font-size: 26px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1 align="center">Cats list:</h1>
-
-    <table>
+    <h1 id="h_list">Cats list:</h1>
+    <table id="main_table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -44,7 +61,7 @@
                 <tr>
                     <td>@cat.Id</td>
                     <td>
-                        <a asp-page="/Cats/Cat_Details" asp-route-id="@cat.Id">
+                        <a class="a_style" asp-page="/Cats/Cat_Details" asp-route-id="@cat.Id">
                             @cat.Nickname
                         </a>
                     <td>@cat.Gender</td>
@@ -53,13 +70,19 @@
                     <td>@cat.Rating</td>
                     <td>@cat.Price</td>
                     <td>
-                        <a asp-page="/Cats/Cat_delete" asp-route-id="@cat.Id">delete</a>
-                        <a asp-page="/Cats/Cat_edit" asp-route-id="@cat.Id">edit</a>
+                        <a class="a_style"  asp-page="/Cats/Cat_delete" asp-route-id="@cat.Id">delete</a>
+                        <a class="a_style"  asp-page="/Cats/Cat_edit" asp-route-id="@cat.Id">edit</a>
                     </td>
                 </tr>
             }
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="8"> 
+                    <button class="but_style"><a class="a_style" asp-page="/Cats/Cat_Create">Add a new cat</a></button>
+                </th>
+            </tr>
+        </tfoot>
     </table>
-    <p><a asp-page="/Cats/Cat_Create">Add a new cat</a></p>
 </body>
 </html>

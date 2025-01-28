@@ -11,13 +11,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cats App</title>
     <style>
-
+        #h_list {
+            font-size: 36px;
+            color: blueviolet;
+            font-style: italic;
+            text-align: center;
+        }
+        #main_form {
+            background-color: rgba(138,43,226,0.2);
+            width: 300px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+        .but_style {
+            font-size: 24px;
+            margin: 30px;
+        }
+        .a_style {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div align="center" id="container">
-        <h1 align="center">Add a new cat:</h1>
-        <form method="post" action="">
+        <h1 id="h_list">New cat:</h1>
+        <form id=main_form method="post" action="">
             <table>
                 <tr>
                     <td>
@@ -76,13 +94,13 @@
                         <label for="price">Price:</label>
                     </td>
                     <td>
-                        <input type="number" name="price" id="price" step="any" min="1">
+                        <input type="number" name="price" id="price" step="any" min="1" placeholder="input price">
                     </td>
                 </tr>
             </table>
-            <button>Add</button>
         </form>
-        <p><a asp-page="/Index">BACK</a></p>
+        <button class="but_style">ADD</button>
+        <button class="but_style"><a class=a_style asp-page="/Index">BACK</a></button>
     </div>
 </body>
 </html>

@@ -7,16 +7,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cats App</title>
+    <style>
+        #h_list {
+            font-size: 36px;
+            color: blueviolet;
+            font-style: italic;
+            text-align: center;
+        }
+        #container {
+            background-color: rgba(138,43,226,0.2);
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+        }
+        #main_container {
+            display: flex;
+            justify-content: center;
+        }
+        .a_style {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <div align="center" id="container">
-        <h1>@Model.Cat.Nickname</h1>
-        <p>Gender: @Model.Cat.Gender</p>
-        <p>Birthday: @($"{Model.Cat.Birthday:dd.MM.yyyy}")</p>
-        <p>Breed: @Model.Cat.Breed</p>
-        <p>Rating: @Model.Cat.Rating</p>
-        <p>Price: @Model.Cat.Price</p>
-        <p><a asp-page="/Index">BACK</a></p>
+    <div id="main_container">
+        <div align="center" id="container">
+            <u><h1 id="h_list">@Model.Cat.Nickname</h1></u>
+            <p>Gender: @Model.Cat.Gender</p>
+            <p>Birthday: @($"{Model.Cat.Birthday:dd.MM.yyyy}")</p>
+            <p>Breed: @Model.Cat.Breed</p>
+            <p>Rating: @Model.Cat.Rating</p>
+            <p>Price: @Model.Cat.Price</p>
+            <button><a class="a_style" asp-page="/Index">BACK</a></button>
+        </div>
     </div>
 </body>
 </html>

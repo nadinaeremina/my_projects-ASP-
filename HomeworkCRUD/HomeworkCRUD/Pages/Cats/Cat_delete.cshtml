@@ -7,18 +7,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cats App</title>
+    <style>
+        #h_list {
+            font-size: 36px;
+            color: blueviolet;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div align="center" id="container">
-        <h1>Delete: @Model.DeletingCat.Nickname</h1>
+        <h1 id="h_list">Delete: @Model.DeletingCat.Nickname</h1>
         <p>
-            Are you sure you want to delete?
+            Are you sure?
         </p>
         <form method="post" action="">
             <input type="number" name="id" value="@Model.DeletingCat.Id" hidden />
-            <button>DELETE</button>
+            <button>YES</button>
             <a asp-page="/Index">
-                <input type="button" value="CANCEL" />
+                <input type="button" value="NO" />
             </a>
         </form>
     </div>

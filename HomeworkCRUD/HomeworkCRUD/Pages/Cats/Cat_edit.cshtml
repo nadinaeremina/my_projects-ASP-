@@ -10,11 +10,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cats App</title>
+    <style>
+        #h_list {
+            font-size: 36px;
+            color: blueviolet;
+            font-style: italic;
+            text-align: center;
+        }
+        .a_style {
+            text-decoration: none;
+        }
+        .but_style {
+            font-size: 24px;
+            margin: 30px;
+        }
+        #main_form {
+            background-color: rgba(138,43,226,0.2);
+            width: 300px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <div align="center" id="container">
-        <h1>Edit: @Model.EditingCat.Nickname</h1>
-        <form method="post" action="">
+        <h1 id="h_list">Edit:</h1>
+        <form id=main_form method ="post" action="">
             <table>
                 <tr>
                     <td>
@@ -65,10 +86,10 @@
                     </td>
                 </tr>
             </table>
-            <button>SAVE</button>
         </form>
-        <a asp-page="/Index">
-            <input type="button" value="CANCEL" />
+        <button class="but_style">SAVE</button>
+        <a class=a_style asp-page ="/Index">
+            <input class="but_style" type="button" value="CANCEL" />
         </a>
     </div>
 </body>
