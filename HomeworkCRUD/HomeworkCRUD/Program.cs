@@ -1,4 +1,4 @@
-using HomeworkCRUD.Model;
+п»їusing HomeworkCRUD.Model;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
-// конфигурация отображения для float/double/decimal
+// РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РґР»СЏ float/double/decimal
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new List<CultureInfo>
@@ -23,7 +23,7 @@ var app = builder.Build();
 
 app.MapRazorPages();
 
-// конфигурация отображения для float/double/decimal
+// РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РґР»СЏ float/double/decimal
 app.UseRequestLocalization();
 
 app.Run();
