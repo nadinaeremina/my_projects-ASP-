@@ -52,6 +52,7 @@
                 <th>Breed</th>
                 <th>Rating</th>
                 <th>Price</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -69,6 +70,7 @@
                     <td>@cat.Breed</td>
                     <td>@cat.Rating</td>
                     <td>@cat.Price</td>
+                    <td>@cat.Description</td>
                     <td>
                         <a class="a_style"  asp-page="/Cats/Cat_delete" asp-route-id="@cat.Id">delete</a>
                         <a class="a_style"  asp-page="/Cats/Cat_edit" asp-route-id="@cat.Id">edit</a>

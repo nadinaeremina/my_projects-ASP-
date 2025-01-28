@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeworkCRUD.Model.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250128120532_Init")]
-    partial class Init
+    [Migration("20250128160029_SeedInitData")]
+    partial class SeedInitData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,10 @@ namespace HomeworkCRUD.Model.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Breed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

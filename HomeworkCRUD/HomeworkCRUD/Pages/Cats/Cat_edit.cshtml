@@ -85,6 +85,14 @@
                         <input type="number" name="price" id="price" min="1" step="any" value="@Model.EditingCat.Price">
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <label for="description">Description:</label>
+                    </td>
+                    <td>
+                        <textarea name="description" id="description" maxlength="200">@Model.EditingCat.Description</textarea>
+                    </td>
+                </tr>
             </table>
             <button class="but_style">SAVE</button>
             <a class=a_style asp-page="/Index">

@@ -10,6 +10,7 @@
         public DateTime Birthday { get; set; }
         public int Rating { get; set; } 
         public decimal Price { get; set; } 
+        public string Description { get; set; } = String.Empty;
         public Cat() { }
     }
 }

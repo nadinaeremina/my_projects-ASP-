@@ -38,6 +38,7 @@ namespace HomeworkCRUD.Pages.Cats
             editing.Birthday = EditingCat.Birthday;
             editing.Rating = EditingCat.Rating;
             editing.Price = EditingCat.Price;
+            editing.Description = EditingCat.Description;
             await _db.SaveChangesAsync();
             return RedirectToPage("/Index");
         }

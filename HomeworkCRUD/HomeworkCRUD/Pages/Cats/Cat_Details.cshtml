@@ -32,12 +32,13 @@
 <body>
     <div id="main_container">
         <div align="center" id="container">
-            <u><h1 id="h_list">@Model.Cat.Nickname</h1></u>
-            <p>Gender: @Model.Cat.Gender</p>
-            <p>Birthday: @($"{Model.Cat.Birthday:dd.MM.yyyy}")</p>
-            <p>Breed: @Model.Cat.Breed</p>
-            <p>Rating: @Model.Cat.Rating</p>
-            <p>Price: @Model.Cat.Price</p>
+            <h1 id="h_list"><u>@Model.Cat.Nickname</u></h1>
+            <p><u>Gender:</u> @Model.Cat.Gender</p>
+            <p><u>Birthday:</u> @($"{Model.Cat.Birthday:dd.MM.yyyy}")</p>
+            <p><u>Breed:</u> @Model.Cat.Breed</p>
+            <p><u>Rating:</u> @Model.Cat.Rating</p>
+            <p><u>Price:</u> @Model.Cat.Price</p>
+            <p><u>Description:</u> @Model.Cat.Description</p>
             <button><a class="a_style" asp-page="/Index">BACK</a></button>
         </div>
     </div>

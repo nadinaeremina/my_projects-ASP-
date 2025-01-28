@@ -10,7 +10,7 @@ namespace HomeworkCRUD.Model
         {
             string connectionString = @"
                 Data Source=NADI\SQLEXPRESS;
-                Initial Catalog=cats_list_db_pv324;
+                Initial Catalog=cats_db_pv324;
                 Integrated Security=SSPI;
                 Timeout=10;
                 TrustServerCertificate=true;
