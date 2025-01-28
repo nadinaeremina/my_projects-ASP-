@@ -1,0 +1,75 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model HomeworkCRUD.Pages.Cats.Cat_editModel
+@{
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats App</title>
+</head>
+<body>
+    <div align="center" id="container">
+        <h1>Edit: @Model.EditingCat.Nickname</h1>
+        <form method="post" action="">
+            <table>
+                <tr>
+                    <td>
+                        <label for="nickname">Nickname:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="nickname" name="nickname" minlength="1" maxlength="20" value="@Model.EditingCat.Nickname" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <labe for="gender">Gender:</labe>
+                    </td>
+                    <td>
+                        <input type="text" id="gender" name="gender" value="@Model.EditingCat.Gender" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="breed">Breed:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="breed" name="breed" value="@Model.EditingCat.Breed" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date_bd">Birthday:</label>
+                    </td>
+                    <td>
+                        <input type="datetime" id="date_bd" name="date_bd" value="@($"{Model.EditingCat.Birthday:yyyy-MM-dd}")" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="rating">Rating:</label>
+                    </td>
+                    <td>
+                        <input type="number" name="rating" id="rating" max="5" min="1" value="@Model.EditingCat.Rating">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="price">Price:</label>
+                    </td>
+                    <td>
+                        <input type="number" name="price" id="price" min="1" step="any" value="@Model.EditingCat.Price">
+                    </td>
+                </tr>
+            </table>
+            <button>SAVE</button>
+        </form>
+        <a asp-page="/Index">
+            <input type="button" value="CANCEL" />
+        </a>
+    </div>
+</body>
+</html>

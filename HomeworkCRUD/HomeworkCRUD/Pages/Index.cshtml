@@ -1,16 +1,65 @@
 ﻿@page
+@using HomeworkCRUD.Model
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model HomeworkCRUD.Pages.IndexModel
+@model HomeworkCRUD.Pages.Cats.Cat_ListModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cats List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats App</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 2px solid black;
+            padding: 5px;
+            font-size: 20pt;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-	<h1>Вы можете подобраать для себя котика, перейдя по ссылке ниже</h1>
+    <h1 align="center">Cats list:</h1>
 
-	<p><a asp-page="/Cats/Cats_List">Перейти к выбору</a></p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nickname</th>
+                <th>Gender</th>
+                <th>Birthday</th>
+                <th>Breed</th>
+                <th>Rating</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Cat cat in Model.Cats)
+            {
+                <tr>
+                    <td>@cat.Id</td>
+                    <td>
+                        <a asp-page="/Cats/Cat_Details" asp-route-id="@cat.Id">
+                            @cat.Nickname
+                        </a>
+                    <td>@cat.Gender</td>
+                    <td>@cat.Birthday.ToString("dd/MM/yyyy")</td>
+                    <td>@cat.Breed</td>
+                    <td>@cat.Rating</td>
+                    <td>@cat.Price</td>
+                    <td>
+                        <a asp-page="/Cats/Cat_delete" asp-route-id="@cat.Id">delete</a>
+                        <a asp-page="/Cats/Cat_edit" asp-route-id="@cat.Id">edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p><a asp-page="/Cats/Cat_Create">Add a new cat</a></p>
 </body>
 </html>

@@ -1,0 +1,22 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model HomeworkCRUD.Pages.Cats.Cat_DetailsModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats App</title>
+</head>
+<body>
+    <div align="center" id="container">
+        <h1>@Model.Cat.Nickname</h1>
+        <p>Gender: @Model.Cat.Gender</p>
+        <p>Birthday: @($"{Model.Cat.Birthday:dd.MM.yyyy}")</p>
+        <p>Breed: @Model.Cat.Breed</p>
+        <p>Rating: @Model.Cat.Rating</p>
+        <p>Price: @Model.Cat.Price</p>
+        <p><a asp-page="/Index">BACK</a></p>
+    </div>
+</body>
+</html>

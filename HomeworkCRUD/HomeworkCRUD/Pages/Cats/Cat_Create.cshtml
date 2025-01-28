@@ -1,0 +1,88 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model HomeworkCRUD.Pages.Cats.Cat_CreateModel
+@{
+    DateTime now = DateTime.Today;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats App</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div align="center" id="container">
+        <h1 align="center">Add a new cat:</h1>
+        <form method="post" action="">
+            <table>
+                <tr>
+                    <td>
+                        <label for="nickname">Nickname:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="nickname" id="nickname" placeholder="input nick">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Gender:</label>
+                    </td>
+                    <td>
+                        <label for="m">male</label>
+                        <input type="radio" name="gender" id="m" value="M">
+                        <label for="fm">female</label>
+                        <input type="radio" name="gender" id="fm" value="F">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="breed">Breed:</label>
+                    </td>
+                    <td>
+                        <select name="breed" id="breed">
+                            <option>Scotland</option>
+                            <option>Siamese</option>
+                            <option>Sphinx</option>
+                            <option>British</option>
+                            <option>Maine Coon</option>
+                            <option>Bengali</option>
+                            <option>Oriental</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date_bd">Birthday:</label>
+                    </td>
+
+                    <td>
+                        <input type="date" name="date_bd" id="date_bd" min="2000-01-01" max="@now">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="rating">Rating:</label>
+                    </td>
+                    <td>
+                        <input type="number" name="rating" id="rating" max="5" min="1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="price">Price:</label>
+                    </td>
+                    <td>
+                        <input type="number" name="price" id="price" step="any" min="1">
+                    </td>
+                </tr>
+            </table>
+            <button>Add</button>
+        </form>
+        <p><a asp-page="/Index">BACK</a></p>
+    </div>
+</body>
+</html>
