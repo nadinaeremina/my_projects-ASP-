@@ -44,3 +44,4 @@ namespace DrinkingsCRUD.Model.Migrations
         }
     }
 }
+
