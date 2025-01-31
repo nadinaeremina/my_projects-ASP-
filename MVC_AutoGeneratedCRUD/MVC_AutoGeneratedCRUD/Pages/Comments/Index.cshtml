@@ -20,7 +20,7 @@
                 @Html.DisplayNameFor(model => model.Comment[0].Text)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Comment[0].Client)
+                Author
             </th>
             <th></th>
         </tr>
@@ -35,7 +35,15 @@
                 @Html.DisplayFor(modelItem => item.Text)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Client.Id)
+                @if (item.Client != null)
+                {
+                    // чтобы можно было через комменты сослаться на клиента
+                    <a asp-page="/Clients/Details" asp-route-id="@item.Client.Id">@item.Client.Name</a>
+                }
+                else
+                {
+                    <span>-</span>
+                }
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
