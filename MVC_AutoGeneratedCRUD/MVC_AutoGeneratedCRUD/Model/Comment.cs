@@ -6,6 +6,8 @@
         public int Id { get; set; }
         public int Rating { get; set; }
         public string Text { get; set; } = string.Empty;
+        // после появления этого поля при добавлении коммента и выборе айди клиента
+        // айди клиента привяжется к этому комменту
         public int? ClientId { get; set; }
         public Client? Client { get; set; }
 

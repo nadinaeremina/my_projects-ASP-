@@ -24,18 +24,11 @@
                 <span asp-validation-for="Comment.Text" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Comment.ClientId" class="control-label"></label>
-                <select asp-for="Comment.ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
+                <select class="form-select" asp-for="Comment.ClientId" asp-items="Model.ClientsOptions"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-            <div class="form-group">
-                <!--'name' должен совпадать с 'name' в БД-->
-                <select class="form-select" name="ClientId" asp-items="Model.ClientsOptions">
-
-                </select>
-            </div>
+            </div>        
         </form>
     </div>
 </div>

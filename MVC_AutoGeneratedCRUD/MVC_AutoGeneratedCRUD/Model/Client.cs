@@ -8,7 +8,6 @@
         public int BirthYear { get; set; }
         public int BonusBalance { get; set; }
         public ICollection<Comment>? Comments { get; set; }
-
         public Client() { }
     }
 }
