@@ -8,8 +8,6 @@ var app = builder.Build();
 app.MapGet("/", () => new { Message = "Server is running" });
 app.MapGet("/ping", () => new { Message = "pong" });
 
-// Customers CRUD
-
 // Get /customer
 app.MapGet("/customer", async (ApplicationDbContext db) => await db.Customers.ToListAsync());
 
@@ -46,9 +44,6 @@ app.MapDelete("/customer/{id:int}", async (int id, ApplicationDbContext db) =>
     {
         return Results.NotFound();
     }
-    // не бывает ассинхронного 'remove'
-    // потому что обьект удаляется не в момент вызова 'remove()'
-    // а в момент вызова 'SaveChangesAsync()'
     db.Customers.Remove(customer);
     await db.SaveChangesAsync();
     return Results.NoContent(); // 204
@@ -67,23 +62,6 @@ app.MapPatch("/customer/{id:int}", async (CustomerEdit edit, int id, Application
     await db.SaveChangesAsync();
     return Results.NoContent(); // 204
 });
-
-// Post /customer/international/ редактирование имени сущности
-//app.MapPost("/applicant/international", async (ApplicantInfo info, ApplicationDbContext db) =>
-//{
-//    Applicant applicant = new Applicant()
-//    {
-//        Name = info.Name,
-//        BirtDate = info.BirthDate,
-//        IsInternational = true
-//    };
-//    await db.AddAsync(applicant);
-//    await db.SaveChangesAsync();
-//    return Results.Created(); // 201
-//});
-
-//получение сущности по email; 
-//поиск всех сущности по имени (включение подстроки с игнорированием регистра).
 
 app.Run();
 
