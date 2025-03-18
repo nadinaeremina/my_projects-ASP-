@@ -1,4 +1,4 @@
-using CustomerApi;
+п»їusing CustomerApi;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,7 +52,7 @@ app.MapDelete("/customer/{id:int}", async (int id, ApplicationDbContext db) =>
 // PATCH /customer/{id} 
 app.MapPatch("/customer/{id:int}", async (CustomerEdit edit, int id, ApplicationDbContext db) =>
 {
-    // сначала ищем
+    // СЃРЅР°С‡Р°Р»Р° РёС‰РµРј
     Customer? customer = await db.Customers.FirstOrDefaultAsync(c => c.Id == id);
     if (customer == null)
     {
@@ -65,7 +65,7 @@ app.MapPatch("/customer/{id:int}", async (CustomerEdit edit, int id, Application
 
 app.Run();
 
-// все типы внизу описываются
+// РІСЃРµ С‚РёРїС‹ РІРЅРёР·Сѓ РѕРїРёСЃС‹РІР°СЋС‚СЃСЏ
 record CustomerInfo(string Name, string Email);
 record CustomerEdit(string Name);
 record CustomerEmail(string Email);
