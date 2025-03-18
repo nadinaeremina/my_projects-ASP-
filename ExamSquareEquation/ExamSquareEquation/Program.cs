@@ -20,13 +20,13 @@ if (coef.A == 0)
 if (discriminant > 0)
 {
     root = 2;
-    x1 = (-coef.B + Math.Sqrt(discriminant) / 2 * coef.A);
-    x2 = (-coef.B - Math.Sqrt(discriminant) / 2 * coef.A);
+    x1 = (-coef.B + Math.Sqrt(discriminant)) / (2 * coef.A);
+    x2 = (-coef.B - Math.Sqrt(discriminant)) / (2 * coef.A);
 }
 else if (discriminant == 0)
 {
     root = 1;
-    x1 = -coef.B / 2 * coef.A;
+    x1 = -coef.B / (2 * coef.A);
     x2 = x1;
 }
 

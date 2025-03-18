@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public int Iid { get; set; } 
         public string Name { get; set; } = String.Empty;
-        public byte[] Image_link { get; set; }
+        public string Image_link { get; set; }
         public int Age { get; set; }
         public int Rate { get; set; }
         public string Description { get; set; } = String.Empty;
