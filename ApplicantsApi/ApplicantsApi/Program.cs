@@ -1,4 +1,4 @@
-using ApplicantsApi;
+п»їusing ApplicantsApi;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -60,9 +60,9 @@ app.MapDelete("/applicant/{id:int}", async (int id, ApplicationDbContext db) =>
     {
         return Results.NotFound();
     }
-    // не бывает ассинхронного 'remove'
-    // потому что обьект удаляется не в момент вызова 'remove()'
-    // а в момент вызова 'SaveChangesAsync()'
+    // РЅРµ Р±С‹РІР°РµС‚ Р°СЃСЃРёРЅС…СЂРѕРЅРЅРѕРіРѕ 'remove'
+    // РїРѕС‚РѕРјСѓ С‡С‚Рѕ РѕР±СЊРµРєС‚ СѓРґР°Р»СЏРµС‚СЃСЏ РЅРµ РІ РјРѕРјРµРЅС‚ РІС‹Р·РѕРІР° 'remove()'
+    // Р° РІ РјРѕРјРµРЅС‚ РІС‹Р·РѕРІР° 'SaveChangesAsync()'
     db.Applicants.Remove(applicant);
     await db.SaveChangesAsync();
     return Results.NoContent(); // 204
@@ -70,5 +70,5 @@ app.MapDelete("/applicant/{id:int}", async (int id, ApplicationDbContext db) =>
 
 app.Run();
 
-// все типы внизу описываются
+// РІСЃРµ С‚РёРїС‹ РІРЅРёР·Сѓ РѕРїРёСЃС‹РІР°СЋС‚СЃСЏ
 record ApplicantInfo(string Name, DateOnly BirthDate);
